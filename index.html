@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Movie Spooky</title>
+        
+        <script src="https://kit.fontawesome.com/f6b4c37fa3.js" crossorigin="anonymous"></script>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@100;200;300;400;500;600;700&family=Fira+Sans&family=Inconsolata:wght@100;200;300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="styles.css">
+        <script defer src="App.js"></script>
+    </head>
+
+    <body>
+        <!-- header section -->
+        <header id="header-section">
+            <nav id="nav-bar">
+                <div id="logo-container">
+                    <h1 id="logo-1">Movie Spooky</h1>
+                </div>
+
+                <div class="items">
+                    <ul class="list">
+                        <li class="item item-menu">
+                            <i id="menu-logo" class="fa-solid fa-bars"></i>
+                        </li>
+                    </ul>
+                    <div id="menu-dropedown">
+                        <div class="close-dropedown">
+                            <a href="#" id="close-dropedown-a"><i class="fa-solid fa-xmark"></i></a>
+                        </div>
+                        
+                        <a id="about-us" href="#footer">About Us</a>
+                        <a id="sign-in" href="#sign-in">Sign In</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- main section -->
+
+        <div class="main-section" id="main">
+            <form id="search-bar">
+                <input type="search" id="search-input" placeholder="Enter the movie...">
+                <button id="search-request">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <div id="container-1">
+                <div id="sorting">
+                    <div id="sorting-container">
+                        <button class="button button-1" id="sort-btn">Sort by</button>
+                        <a href="#" id="down-arrow" class="arrow-downside"><i class="fa-sharp fa-solid fa-caret-down"></i></a>
+                    </div>
+                    
+                    <div id="sort-dropedown-content" class="sorting-dropedown">
+                        <a id="movie-popularity-highest" href="#">Popularity(Highest)</a>
+                        <a id="movie-popularity-lowest" href="#">Popularity(Lowest)</a>
+                        <a id="movie-newest" href="#">Newest</a>
+                        <a id="movie-oldest" href="#">Oldest</a>
+                        <a id="movie-ratings-highest" href="#">Ratings(Highest)</a>
+                        <a id="movie-ratings-lowest" href="#">Ratings(Lowest)</a>
+                    </div>  
+
+                </div>
+
+                <div id="watchlist">
+                    <button class="button button-2" id="favourite-section">Watchlist</button>
+                </div>
+            </div>
+
+             <!-- movie-cards section -->
+             <section id="movies-cards-container">
+        
+            </section>
+            
+        </div>
+
+        
+        <!-- pagination section -->
+        <div class="page-section" id="pagination-section">
+            <button class="pagination-btn" id="previous-button">
+                Previous
+            </button>
+            <div class="current-page" id="current-page-num">
+                1
+            </div>
+            <button class="pagination-btn" id="next-button">
+                Next
+            </button>
+        </div>
+
+        <!-- footer section -->
+
+        <footer class="footer" id="footer">
+            <div class="footer-header">
+                <h1>Movie Spooky</h1>
+                <h3>Thank you for visiting us</h3>
+            </div>
+
+            <div class="contact">
+                <div class="footer-icon footer-icon-1" id="twitter">
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+                <div class="footer-icon footer-icon-2" id="instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+                <div class="footer-icon footer-icon-3" id="telegram">
+                    <i class="fa-brands fa-telegram"></i>
+                </div>
+                <div class="footer-icon footer-icon-4" id="facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </div>
+                <div class="footer-icon footer-icon-5" id="gmail">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+            </div>
+
+            <div class="trademark">
+                <i class="fa-regular fa-copyright"></i> 2022-2023 by Aquarium Blue, Inc.
+            </div>
+            
+        </footer>
+
+    </body>
+</html>

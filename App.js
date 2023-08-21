@@ -63,7 +63,7 @@ const apiKey= `&api_key=36f8886db1d01cae84c5897954035e71`;
 const search_movie_url= `https://api.themoviedb.org/3/search/movie?query=`;
 
 const all_movies_url= `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=`;
-const base_url= `https://api.themoviedb.org/3/discover/movie?language=en-US&page=`
+const base_url= `https://api.themoviedb.org/3/discover/movie?language=en-US&page=`;
 const sortByPopularityHigh_url= `&sort_by=popularity.desc` + apiKey;
 const sortByPopularityLow_url= `&sort_by=popularity.asc` + apiKey;
 const sortByNewest_url= `&sort_by=primary_release_date.desc` + apiKey;
@@ -184,7 +184,8 @@ sortBtn.addEventListener('click', (event) => {
             const changed_data= remapData(data);
 
             render_movies(changed_data);
-            
+
+            console.log(changed_data);
             return changed_data;
 
         } catch(error) {
@@ -194,6 +195,7 @@ sortBtn.addEventListener('click', (event) => {
 
 
     search_request.addEventListener('click', (event) => {
+        event.preventDefault();
         const movieName= search_movie_input.value;
         sorted_button= false;
 
@@ -206,8 +208,8 @@ sortBtn.addEventListener('click', (event) => {
 
             } else {
                 currentPage= 1;
-                resetAllBtns();
                 searchMovie(search_movie_url + movieName + apiKey);
+                resetAllBtns();
                 prev_url= curr_url;
                 curr_url= search_movie_url + movieName + apiKey;
             }
@@ -637,7 +639,7 @@ async function show_trailer(movie_id) {
         previous_page_btn.disabled= true;
         previous_page_btn.style.visibility= 'hidden';
     }
-    if(totalPages == 1) {
+    if(totalPages === 1) {
         next_page_btn.disabled= true;
         next_page_btn.style.visibility= 'hidden';
     }
@@ -706,11 +708,17 @@ async function show_trailer(movie_id) {
 
         resetAllBtns();
         sorted_button= false;
+        currentPage= 1;
 
         const sorting_container= document.getElementById('sorting');
         const search_bar= document.getElementById('search-bar');
 
         if(watchlist_section_button.innerHTML == 'Watchlist') {
+            previous_page_btn.disabled= true;
+            previous_page_btn.style.visibility= 'hidden';
+            next_page_btn.disabled= true;
+            next_page_btn.style.visibility= 'hidden';
+
 
             watchlist_section_button.innerHTML= 'All'
             watchlist_section_button.style.backgroundColor= '#DEF2F1';
@@ -724,6 +732,17 @@ async function show_trailer(movie_id) {
             render_watchlist();
 
         } else {
+            if(currentPage === 1) {
+                previous_page_btn.disabled= true;
+                previous_page_btn.style.visibility= 'hidden';
+            } else {
+                previous_page_btn.disabled = false;
+                previous_page_btn.style.visibility= 'visible';
+            }
+            if(totalPages === 1) {
+                next_page_btn.disabled= false;
+                next_page_btn.style.visibility= 'visible';
+            }
 
             watchlist_section_button.innerHTML= 'Watchlist'
             watchlist_section_button.style.backgroundColor= '#112D32';
